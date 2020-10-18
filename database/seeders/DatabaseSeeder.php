@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             SliderImgSeeder::class,
             OrderTypeSeeder::class,
             OrderStructureSeeder::class,
+            UserRolesSeeder::class,
         ]);
     }
 }

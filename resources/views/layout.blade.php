@@ -74,18 +74,6 @@
       
         @yield('content')
 
-      <?php
-    //   if(count($system_alerts) > 0) {
-    //       echo '
-    //       <div class="alert alert-' .  $system_alerts['type'] . ' alert-dismissable">
-    //         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    //         ' . $system_alerts['text'] . '
-    //       </div>
-    //       ';
-    //   }
-    //   require_once 'application/' . $destination . '/views/' . $method . '/' . $action . '.php';
-      ?>
-
     <hr>
     <p>&copy; Компания «ОКРЫМ» {{ date('Y') }}</p>
     
