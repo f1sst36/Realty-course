@@ -47,5 +47,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function(){
     Route::post('/review-store', 'ReviewController@addReview')->name('addReview');
     Route::post('/review-update', 'ReviewController@editReview')->name('editReview');
     Route::post('/review-delete', 'ReviewController@deleteReview')->name('deleteReview');
+
+    Route::get('/slider', 'SliderController@index')->name('slider');
+    Route::post('/upload-image', 'SliderController@uploadImageOrDelete')->name('uploadImageOrDelete');
 });
 
