@@ -36,6 +36,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function(){
 
     Route::get('/articles', 'ArticleController@index')->name('articles');
     Route::get('/article-create', 'ArticleController@createForm')->name('createForm');
+    Route::get('/article-edit/{id}', 'ArticleController@editForm')->name('editForm');
     Route::post('/article-store', 'ArticleController@addArticle')->name('addArticle');
+    Route::post('/article-update', 'ArticleController@editArticle')->name('editArticle');
+    Route::post('/article-delete', 'ArticleController@deleteArticles')->name('deleteArticles');
+    
+    Route::get('/reviews', 'ReviewController@index')->name('reviewList');
+    Route::get('/review-create', 'ReviewController@createForm')->name('createReviewForm');
+    Route::get('/review-edit/{id}', 'ReviewController@editForm')->name('editReviewForm');
+    Route::post('/review-store', 'ReviewController@addReview')->name('addReview');
+    Route::post('/review-update', 'ReviewController@editReview')->name('editReview');
+    Route::post('/review-delete', 'ReviewController@deleteReview')->name('deleteReview');
 });
 

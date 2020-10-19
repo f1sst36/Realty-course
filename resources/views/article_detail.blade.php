@@ -4,7 +4,7 @@
     <li><a href="/">Главная</a></li>
     <li><a href="{{ route('acticles') }}">Новости</a></li>
 
-    <li class="active">{{ $article->title }}</li>
+    <li class="active">{!! $article->title !!}</li>
 </ol>
 
 <h1>{{ $article->title }}</h1>

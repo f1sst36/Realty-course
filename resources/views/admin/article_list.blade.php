@@ -1,10 +1,13 @@
 @extends('admin.layout')
 @section('content')
+<form class="form_delete" method="post" action="{{ route('deleteArticles') }}">
+@csrf
 <div class="pull-right">
   <a href="{{ route('createForm') }}" class="btn btn-default" title="Добавить">
     <span class="glyphicon glyphicon-plus"></span>
   </a>
-  <button type="button" class="btn btn-default button_delete" title="Удалить">
+  
+  <button type="submit" class="btn btn-default button_delete" title="Удалить">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
 </div>
@@ -12,7 +15,7 @@
 <div class="clearfix"></div>
 <hr>
 @if($articles->isNotEmpty())
-    <form class="form_delete" method="post">
+    <input type="hidden" name="article_count" value='{{ count($articles) }}'>
       <table class="table table-striped table-condensed">
         <thead>
           <tr>
@@ -25,8 +28,8 @@
         <tbody>
 @foreach($articles as $article)
     <tr>
-        <td><input type="checkbox" name="article" class="sell_item" value="{{ $article->id }}"></td>
-        <td><a href="">{{ $article->title }}</a></td>
+        <td><input type="checkbox" name="article-{{ $article->id }}" class="sell_item" value="{{ $article->id }}"></td>
+        <td><a href="{{ route('editForm', $article->id) }}">{{ $article->title }}</a></td>
         <td>
             @if($article->type == 1 )
                 Запись на главной
@@ -39,8 +42,29 @@
 @endforeach
         </tbody>
       </table>
-    </form>
+    
 @else
     <p>Список материалов пуст.</p>
 @endif
+</form>
+
+<script>
+$(function() {
+    $(".sell_all").change(function() {
+        if($(this).prop("checked") == true) {
+            $(".sell_item").each(function(){
+                $(this).prop("checked", true);
+            });
+        } else {
+            $(".sell_item").each(function(){
+                $(this).attr("checked", false);
+            });
+        }
+    });
+    $(".button_delete").click(function() {
+        $(".form_delete").submit();
+    });
+});
+</script>
+
 @endsection

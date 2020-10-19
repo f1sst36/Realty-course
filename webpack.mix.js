@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+// ASSET_URL=public
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

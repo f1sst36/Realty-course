@@ -11,6 +11,7 @@
 
 <form method="post" action="{{ route('addArticle') }}">
     @csrf
+    @include('admin.errors')
     <div class="form-group">
         <label>Заголовок <span class="text-danger">*</span></label>
         <input name="title" type="text" class="form-control" value="{{ old('title') }}">
@@ -26,7 +27,7 @@
       
     <div class="form-group">
         <label>Время создания <span class="text-danger">*</span></label>
-        <input name="time_create" type="text" class="form-control" value="{{ date('Y-m-d H:i:s', time() + 3 * 3600) }}">
+        <input name="created_at" type="text" class="form-control" value="{{ date('Y-m-d H:i:s', time() + 3 * 3600) }}" disabled>
     </div>
       
     <div class="form-group">
@@ -44,16 +45,16 @@
     
 </form>
 
-<!-- <script src="https://cdn.tiny.cloud/1/<? //$tiny_api ?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- <script src="https://cdn.tiny.cloud/1/<? //$tiny_api ?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>-->
 <script>
 tinymce.init({
     selector: '#text',
     language: 'ru',
-    images_upload_url: '/postAcceptor.php',
+    //images_upload_url: '/postAcceptor.php',
     toolbar: "sizeselect | bold italic | fontselect |  fontsizeselect | image code table",
     plugins: "image imagetools advcode table linkchecker autolink lists checklist",
     fontsize_formats: "8px 10px 12px 14px 18px 24px 36px"
 });
-</script> -->
+</script> 
 
 @endsection

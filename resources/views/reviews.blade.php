@@ -13,7 +13,7 @@
             <div class="well">
                 <div class="desc">
                 <strong>{{ $review->author }}</strong>, <span class="text-muted small">{{ $review->created_at }}</span><br>
-                {{ $review->text }}
+                {!! $review->text !!}
                 </div>
             </div>
             </div>

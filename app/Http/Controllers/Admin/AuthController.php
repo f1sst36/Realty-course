@@ -10,6 +10,7 @@ use App\Models\User;
 class AuthController extends Controller
 {
     public function index(){
+        if(isset(Auth::user()->id)) return redirect()->route('articles');
         return view('admin.auth');
     }
 
