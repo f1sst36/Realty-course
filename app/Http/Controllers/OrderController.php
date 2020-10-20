@@ -49,10 +49,10 @@ class OrderController extends Controller
 
         if(isset($filterData['minPrice']) && $filterData['minPrice'] > 0) $filterRules[] = ['price', '>', $filterData['minPrice']];
         if(isset($filterData['maxPrice']) && $filterData['maxPrice'] > 0) $filterRules[] = ['price', '<=', $filterData['maxPrice']];
-        
+        $filterRules[] = ['status', '=', 2];
         
         $orders = Order::where($filterRules)->get();
-dd($orders);
+
         return view('orders_list', compact('orders', 'orderTypes', 'orderStructures'));
     }
 }

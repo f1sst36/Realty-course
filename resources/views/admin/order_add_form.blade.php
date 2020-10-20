@@ -53,7 +53,7 @@
   
     <div class="form-group">
         <label>Описание <span class="text-danger">*</span></label>
-        <textarea name="description" class="form-control" rows="3" placeholder="Описание" required>{{ old('name') }}</textarea>
+        <textarea name="description" class="form-control" rows="3" placeholder="Описание" required>{{ old('description') }}</textarea>
     </div>
   
       <div class="form-group">
