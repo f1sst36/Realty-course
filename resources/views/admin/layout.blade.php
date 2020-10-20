@@ -41,7 +41,7 @@
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Менеджеры контента <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="">Список пользователей</a></li>
+                <li><a href="{{ route('users') }}">Список пользователей</a></li>
                 <li><a href="">Группы пользователей</a></li>
             </ul>
             </li>

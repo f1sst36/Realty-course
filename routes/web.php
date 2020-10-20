@@ -58,5 +58,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function(){
     Route::post('/order-store', 'OrderController@addOrder')->name('addOrder');
     Route::post('/order-delete', 'OrderController@deleteOrders')->name('deleteOrders');
     Route::get('/order-filter', 'OrderController@filterOrders')->name('filterOrders');
+
+    Route::get('/users', 'UserController@index')->name('users');
+    Route::get('/user-create', 'UserController@createUserForm')->name('createUserForm');
+    Route::post('/user-store', 'UserController@createUser')->name('createUser');
 });
 

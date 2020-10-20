@@ -20,6 +20,8 @@ class AuthController extends Controller
 
         if($user){
             Auth::loginUsingId($user->id, true);
+            $user->last_visit = date('Y-m-d H:i:s', time() + 3 * 3600);
+            $user->save();
             return redirect()->route('articles');
         }else{
             return back()->with(['msg' => 'Неверный логин или пароль']);

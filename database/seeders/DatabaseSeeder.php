@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
             OrderTypeSeeder::class,
             OrderStructureSeeder::class,
             UserRolesSeeder::class,
+            AccessSeeder::class,
+            UserSeeder::class,
+            access_usersSeeder::class,
         ]);
     }
 }
