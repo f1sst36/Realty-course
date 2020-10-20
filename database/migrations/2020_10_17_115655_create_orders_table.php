@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->text('description');
             $table->float('price', 10, 2);
             $table->integer('area')->unsigned();
+            $table->integer('status')->default(1)->unsigned();
 
             $table->bigInteger('type')->unsigned();
             $table->bigInteger('structure')->unsigned();

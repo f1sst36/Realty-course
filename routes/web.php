@@ -50,5 +50,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function(){
 
     Route::get('/slider', 'SliderController@index')->name('slider');
     Route::post('/upload-image', 'SliderController@uploadImageOrDelete')->name('uploadImageOrDelete');
+
+    Route::get('/orders', 'OrderController@index')->name('orders');
+    Route::get('/order-edit/{id}', 'OrderController@editForm')->name('editForm');
+    Route::post('/order-update', 'OrderController@editOrder')->name('editOrder');
+    Route::get('/order-add', 'OrderController@addForm')->name('addOrderForm');
+    Route::post('/order-store', 'OrderController@addOrder')->name('addOrder');
+    Route::post('/order-delete', 'OrderController@deleteOrders')->name('deleteOrders');
+    Route::get('/order-filter', 'OrderController@filterOrders')->name('filterOrders');
 });
 

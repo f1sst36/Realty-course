@@ -31,7 +31,7 @@ class OrderController extends Controller
     public function orderList(){
         $orderTypes = OrderType::select(['id', 'type'])->get();
         $orderStructures = OrderStructure::select(['id', 'structure'])->get();
-        $orders = Order::with(['orderType:id,type', 'orderStructure:id,structure'])->get();
+        $orders = Order::with(['orderType:id,type', 'orderStructure:id,structure'])->where('status', '=', 2)->get();
 
         return view('orders_list', compact('orders', 'orderTypes', 'orderStructures'));
     }
@@ -50,8 +50,9 @@ class OrderController extends Controller
         if(isset($filterData['minPrice']) && $filterData['minPrice'] > 0) $filterRules[] = ['price', '>', $filterData['minPrice']];
         if(isset($filterData['maxPrice']) && $filterData['maxPrice'] > 0) $filterRules[] = ['price', '<=', $filterData['maxPrice']];
         
+        
         $orders = Order::where($filterRules)->get();
-
+dd($orders);
         return view('orders_list', compact('orders', 'orderTypes', 'orderStructures'));
     }
 }

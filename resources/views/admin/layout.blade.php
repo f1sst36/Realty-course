@@ -36,7 +36,7 @@
             <li><a href="">Меню</a></li>
             <li><a href="{{ route('reviewList') }}">Отзывы</a></li>
             <li><a href="{{ route('slider') }}">Слайдер</a></li>
-            <li><a href="">Заявки</a></li>
+            <li><a href="{{ route('orders') }}">Заявки</a></li>
            
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Менеджеры контента <span class="caret"></span></a>

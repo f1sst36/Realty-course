@@ -19,6 +19,7 @@ class Order extends Model
         'area',
         'price',
         'description',
+        'status',
     ];
 
     public function orderType(){
