@@ -36,7 +36,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function(){
 
     Route::get('/articles', 'ArticleController@index')->name('articles');
     Route::get('/article-create', 'ArticleController@createForm')->name('createForm');
-    Route::get('/article-edit/{id}', 'ArticleController@editForm')->name('editForm');
+    Route::get('/article-edit/{id}', 'ArticleController@editForm')->name('editArticleForm');
     Route::post('/article-store', 'ArticleController@addArticle')->name('addArticle');
     Route::post('/article-update', 'ArticleController@editArticle')->name('editArticle');
     Route::post('/article-delete', 'ArticleController@deleteArticles')->name('deleteArticles');

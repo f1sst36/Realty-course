@@ -8,10 +8,11 @@
     <span class="glyphicon glyphicon-plus"></span>
   </a>
 @endif
-  
+@if(isset($accesses[2]))
   <button type="submit" class="btn btn-default button_delete" title="Удалить">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
+  @endif
 </div>
 <h3>Список материалов</h3>
 <div class="clearfix"></div>
@@ -34,7 +35,7 @@
     <tr>
         <td><input type="checkbox" name="article-{{ $article->id }}" class="sell_item" value="{{ $article->id }}"></td>
         @if(isset($accesses[2]))
-        <td><a href="{{ route('editForm', $article->id) }}">{{ $article->title }}</a></td>
+        <td><a href="{{ route('editArticleForm', $article->id) }}">{{ $article->title }}</a></td>
         @else
         <td>{{ $article->title }}</td>
         @endif
