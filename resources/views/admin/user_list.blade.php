@@ -1,20 +1,25 @@
 @extends('admin.layout')
 @section('content')
-
+<form class="form_delete" method="post" action="{{ route('deleteUser') }}">
+@csrf
 <div class="pull-right">
+@if(isset($accesses[14]))
   <a href="{{ route('createUserForm') }}" class="btn btn-default" title="Добавить">
     <span class="glyphicon glyphicon-plus"></span>
   </a>
+@endif
+@if(isset($accesses[15]))
   <button type="button" class="btn btn-default button_delete" title="Удалить">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
+@endif
 </div>
 <h1 class="h3">Список пользователей</h1>
 <div class="clearfix"></div>
 <hr>
-
+@if(isset($accesses[16]))
 @if($users->isNotEmpty())
-<form class="form_delete" method="post">
+
       <table class="table table-striped table-condensed">
         <thead>
           <tr>
@@ -29,12 +34,16 @@
         <tbody>
 @foreach($users as $user)
         <tr>
-            @if($user->role->type == 1)
+            @if($user->id == 1)
             <td><input type="checkbox" name="user-{{ $user->id }}" class="sell_item" value="{{ $user->id }}" disabled></td>
             @else
           <td><input type="checkbox" name="user-{{ $user->id }}" class="sell_item" value="{{ $user->id }}"></td>
           @endif
-          <td><a href="">{{ $user->phone }}</a></td>
+          @if(isset($accesses[15]))
+          <td><a href="{{ route('editUserForm', $user->id) }}">{{ $user->phone }}</a></td>
+          @else
+          <td>{{ $user->phone }}</td>
+          @endif
           <td>{{ $user->name }}</td>
           <td>{{ $user->role->title }}</td>
           <td>{{ $user->created_at }}</td>
@@ -43,11 +52,15 @@
 @endforeach
 </tbody>
       </table>
-    </form>
+   
 @else
 <p>Список пользователей пуст.</p>
 @endif
 
+@else
+<p>У вас нет доступа к списку пользователей.</p>
+@endif
+</form>
 <script>
 $(function() {
     $(".sell_all").change(function() {

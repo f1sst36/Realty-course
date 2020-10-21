@@ -9,6 +9,6 @@
 
 <h1>{{ $article->title }}</h1>
 <p class="small text-muted">{{ $article->created_at }}</p>
-{{ $article->text }}
+{!! $article->text !!}
 
 @endsection

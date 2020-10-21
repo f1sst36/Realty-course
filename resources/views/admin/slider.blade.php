@@ -2,7 +2,7 @@
 @section('content')
 <h1 class="h3">Редактирование слайдера</h1>
 <hr>
-
+@if(isset($accesses[13]))
 <form method="post" enctype="multipart/form-data" action="{{ route('uploadImageOrDelete') }}">
     @csrf
         <label>Изображения</label>
@@ -42,7 +42,9 @@
   <button type="submit" class="btn btn-primary">Сохранить</button>
   <br><br>
 </form>
-
+@else
+  <p>У вас нет доступа к редактированию слайдера.</p>
+@endif
 <script>
 $(function() {
         window.img_count = 0;

@@ -5,14 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\User;
 use App\Http\Requests\AddArticleRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
     public function index(){
         $articles = Article::all();
+        $accesses = User::getAccesses();
 
-        return view('admin.article_list', compact('articles'));
+        return view('admin.article_list', compact('articles', 'accesses'));
     }
 
     public function createForm(){

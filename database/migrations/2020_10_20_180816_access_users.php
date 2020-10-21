@@ -17,7 +17,7 @@ class AccessUsers extends Migration
             $table->id();
 
             $table->bigInteger('role_id')->unsigned();
-            $table->foreign('role_id')->references('id')->on('user_roles');
+            $table->foreign('role_id')->references('id')->on('user_roles')->onDelete('cascade');
 
             $table->bigInteger('section_id')->unsigned();
             $table->foreign('section_id')->references('id')->on('accesses');

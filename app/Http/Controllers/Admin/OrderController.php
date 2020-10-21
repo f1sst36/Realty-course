@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderType;
 use App\Models\OrderStructure;
@@ -15,8 +16,9 @@ class OrderController extends Controller
         $orders = Order::all();
         $orderTypes = OrderType::select(['id', 'type'])->get();
         $orderStructures = OrderStructure::select(['id', 'structure'])->get();
+        $accesses = User::getAccesses();
 
-        return view('admin.order_list', compact('orders', 'orderTypes', 'orderStructures'));
+        return view('admin.order_list', compact('orders', 'orderTypes', 'orderStructures', 'accesses'));
     }
 
     public function editForm($id){

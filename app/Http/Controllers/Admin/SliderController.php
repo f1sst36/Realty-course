@@ -6,13 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use App\Models\User;
 
 class SliderController extends Controller
 {
     public function index(){
         $images = DB::table('slider_imgs')->get();
+        $accesses = User::getAccesses();
 
-        return view('admin.slider', compact('images'));
+        return view('admin.slider', compact('images', 'accesses'));
     }
 
     public function uploadImageOrDelete(Request $request){

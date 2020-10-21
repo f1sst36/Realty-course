@@ -15,8 +15,8 @@ class CreateUserRolesTable extends Migration
     {
         Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->integer('type')->unsigned()->default(0);
+            $table->string('title')->unique();
+            //$table->integer('type')->unsigned()->default(0);
         });
     }
 

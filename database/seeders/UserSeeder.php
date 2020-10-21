@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'admin',
                 'phone' => '000',
-                'email' => 'admin@mail.ru',
+                //'email' => 'admin@mail.ru',
                 'password' => 'admin',
                 'role_id' => '1',
                 'created_at' => date('Y-m-d H:i:s', time() + 3 * 3600),
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'moderator',
                 'phone' => '000',
-                'email' => 'moderator@mail.ru',
+                //'email' => 'moderator@mail.ru',
                 'password' => 'moderator',
                 'role_id' => '2',
                 'created_at' => date('Y-m-d H:i:s', time() + 3 * 3600),

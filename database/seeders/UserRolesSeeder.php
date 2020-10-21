@@ -16,11 +16,11 @@ class UserRolesSeeder extends Seeder
         \DB::table('user_roles')->insert([
             [
                 'title' => 'Администратор',
-                'type' => '2',
+                //'type' => '2',
             ],
             [
                 'title' => 'Модератор',
-                'type' => '1',
+                //'type' => '1',
             ],
         ]);
     }

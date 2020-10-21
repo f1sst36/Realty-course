@@ -3,12 +3,16 @@
 
 
 <div class="pull-right">
+@if(isset($accesses[7]))
   <a href="{{ route('addOrderForm') }}" class="btn btn-default" title="Добавить">
     <span class="glyphicon glyphicon-plus"></span>
   </a>
+@endif
+@if(isset($accesses[8]))
   <button type="button" class="btn btn-default" id="btn_delete" title="Удалить">
     <span class="glyphicon glyphicon-trash"></span>
   </button>
+@endif
 </div>
 <h1 class="h3">Список заказов</h1>
 <div class="clearfix"></div>
@@ -80,6 +84,7 @@
         </div>
         </form>
     </div>
+    @if(isset($accesses[8]))
 @if($orders->isNotEmpty())
 <form id="form_delete" method="post" action="{{ route('deleteOrders') }}">
 @csrf
@@ -100,10 +105,15 @@
           </tr>
         </thead>
         <tbody>
+        
 @foreach($orders as $order)
         <tr>
           <td><input type="checkbox" name="order-{{ $order->id }}" class="sell_item" value="{{ $order->id }}"></td>
+          @if(isset($accesses[9]))
           <td><a href="{{ route('editForm', $order->id) }}">{{ sprintf("%04d", $order->id) }}</a></td>
+          @else
+          <td>{{ sprintf("%04d", $order->id) }}</td>
+          @endif
           <td>{{ $order->name }}</td>
           <td>{{ $order->phone }}</td>
           <td>{{ $order->orderType->type }}</td>
@@ -123,11 +133,18 @@
           </td>
         </tr>
 @endforeach
+
 </tbody>
       </table>
     </form>
+
+
 @else
 <p>Список заказов пуст.</p>
+@endif
+
+@else
+<p>Список заказов недоступен.</p>
 @endif
 
 

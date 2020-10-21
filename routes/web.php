@@ -62,5 +62,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function(){
     Route::get('/users', 'UserController@index')->name('users');
     Route::get('/user-create', 'UserController@createUserForm')->name('createUserForm');
     Route::post('/user-store', 'UserController@createUser')->name('createUser');
+    Route::get('/user-edit/{id}', 'UserController@editUserForm')->name('editUserForm');
+    Route::post('/user-update', 'UserController@editUser')->name('editUser');
+    Route::post('/user-delete', 'UserController@deleteUser')->name('deleteUser');
+
+    Route::get('/roles', 'RolesController@index')->name('roles');
+    Route::get('/role-create', 'RolesController@createRoleForm')->name('createRoleForm');
+    Route::get('/role-edit/{id}', 'RolesController@editRoleForm')->name('editRoleForm');
+    Route::post('/role-update', 'RolesController@editForm')->name('editForm');
+    Route::post('/role-store', 'RolesController@createRole')->name('createRole');
+    Route::post('/role-delete', 'RolesController@roleDelete')->name('roleDelete');
 });
 

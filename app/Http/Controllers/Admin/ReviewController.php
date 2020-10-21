@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Review;
+use App\Models\User;
 use App\Http\Requests\ReviewRequest;
 
 class ReviewController extends Controller
 {
     public function index(){
         $reviews = Review::paginate(10);
-        return view('admin.review_list', compact('reviews'));
+        $accesses = User::getAccesses();
+
+        return view('admin.review_list', compact('reviews', 'accesses'));
     }
 
     public function createForm(){

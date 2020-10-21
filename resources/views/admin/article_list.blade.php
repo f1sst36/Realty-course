@@ -3,9 +3,11 @@
 <form class="form_delete" method="post" action="{{ route('deleteArticles') }}">
 @csrf
 <div class="pull-right">
+@if(isset($accesses[1]))
   <a href="{{ route('createForm') }}" class="btn btn-default" title="Добавить">
     <span class="glyphicon glyphicon-plus"></span>
   </a>
+@endif
   
   <button type="submit" class="btn btn-default button_delete" title="Удалить">
     <span class="glyphicon glyphicon-trash"></span>
@@ -15,6 +17,7 @@
 <div class="clearfix"></div>
 <hr>
 @if($articles->isNotEmpty())
+@if(isset($accesses[3]))
     <input type="hidden" name="article_count" value='{{ count($articles) }}'>
       <table class="table table-striped table-condensed">
         <thead>
@@ -26,10 +29,15 @@
           </tr>
         </thead>
         <tbody>
+        
 @foreach($articles as $article)
     <tr>
         <td><input type="checkbox" name="article-{{ $article->id }}" class="sell_item" value="{{ $article->id }}"></td>
+        @if(isset($accesses[2]))
         <td><a href="{{ route('editForm', $article->id) }}">{{ $article->title }}</a></td>
+        @else
+        <td>{{ $article->title }}</td>
+        @endif
         <td>
             @if($article->type == 1 )
                 Запись на главной
@@ -42,7 +50,9 @@
 @endforeach
         </tbody>
       </table>
-    
+      @else
+<p>Список материалов недоступен.</p>
+@endif
 @else
     <p>Список материалов пуст.</p>
 @endif
