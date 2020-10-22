@@ -41,17 +41,17 @@
                 
         <div class="col-sm-2">
           <div class="form-group">
-              <label>Цена(от)<span class="text-danger">*</span></label>
+              <label>Цена<span class="text-danger">*</span></label>
               <input name="minPrice" type="text" class="form-control" value="0" placeholder="Мин. Цена">
           </div>
         </div>
       
-              <div class="col-sm-2">
+        <!-- <div class="col-sm-2">
           <div class="form-group">
               <label>Цена(до)<span class="text-danger">*</span></label>
               <input name="maxPrice" type="text" class="form-control" value="0" placeholder="Макс. Цена">
           </div>
-        </div>
+        </div> -->
                 
         <div class="col-sm-2">
           <button type="submit" class="btn btn-success btn-block" style="margin-top: 25px;">

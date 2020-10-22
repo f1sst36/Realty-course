@@ -50,8 +50,11 @@ class OrderController extends Controller
         if(isset($filterData['structure']) && $filterData['structure'] > 0) $filterRules[] = ['structure', '=', $filterData['structure']];
         if(isset($filterData['area']) && $filterData['area'] > 0) $filterRules[] = ['area', '=', $filterData['area']];
 
-        if(isset($filterData['minPrice']) && $filterData['minPrice'] > 0) $filterRules[] = ['price', '>', $filterData['minPrice']];
-        if(isset($filterData['maxPrice']) && $filterData['maxPrice'] > 0) $filterRules[] = ['price', '<=', $filterData['maxPrice']];
+        // if(isset($filterData['minPrice']) && $filterData['minPrice'] > 0) $filterRules[] = ['price', '>', $filterData['minPrice']];
+        // if(isset($filterData['maxPrice']) && $filterData['maxPrice'] > 0) $filterRules[] = ['price', '<=', $filterData['maxPrice']];
+        
+        if(isset($filterData['minPrice']) && $filterData['minPrice'] > 0) $filterRules[] = ['price', '=', $filterData['minPrice']];
+        
         $filterRules[] = ['status', '=', 2];
         $menuItems = Menu::setHierarchy();
         

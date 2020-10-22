@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\User;
 use App\Models\Menu;
 use App\Models\Article;
 
@@ -12,8 +13,9 @@ class MenuController extends Controller
 {
     public function index(){
         $menus = Menu::all();
+        $accesses = User::getAccesses();
 
-        return view('admin.menu_list', compact('menus'));
+        return view('admin.menu_list', compact('menus', 'accesses'));
     }
 
     public function createMenuForm(){
@@ -79,6 +81,12 @@ class MenuController extends Controller
         if($data['type'] == 1 && $data['material_id'] == 0) 
             return back()->withErrors(['msg' => 'Для данного типа страницы должна быть выбрана статья.']);
         
+        if(isset($data['homepage'])){
+            $item = Menu::where('homepage', '>', 0)->first();
+            $item->update(['homepage' => 0]);
+            //dd(Menu::where('homepage', '>', 0)->first()->homepage = 0);
+        }
+
         $menuItem = Menu::findOrFail($data['id']);
         //(new Menu)::where('parent_id', '=', $data['parent_id'])->first()
         $menuItem->fill($data);

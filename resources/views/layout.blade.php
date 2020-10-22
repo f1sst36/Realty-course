@@ -64,7 +64,7 @@
 
                   @if(isset($menuItem->childs) && $menuItem->childs->isNotEmpty())
                     <li class="dropdown">
-                      <a href="{{ route('realtyInfo') }}" class="dropdown-toggle disabled" data-toggle="dropdown">Недвижимость <span class="caret"></span></a>
+                    <a href="{{ route($menuItem->pathForType($menuItem), $menuItem->material_id) }}" class="dropdown-toggle disabled" data-toggle="dropdown">{{ $menuItem->title }} <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         @foreach($menuItem->childs as $childMenuItem)
                           <li><a href="{{ route($menuItem->pathForType($childMenuItem), $childMenuItem->material_id) }}">{{ $childMenuItem->title }}</a></li>
@@ -79,7 +79,7 @@
                 @if($menuItem->type == 2 && $menuItem->parent_id == 0)
                 @if(isset($menuItem->childs) && $menuItem->childs->isNotEmpty())
                     <li class="dropdown">
-                      <a href="{{ route('realtyInfo') }}" class="dropdown-toggle disabled" data-toggle="dropdown">Недвижимость <span class="caret"></span></a>
+                      <a href="{{ route($menuItem->pathForType($menuItem), $menuItem->material_id) }}" class="dropdown-toggle disabled" data-toggle="dropdown">{{ $menuItem->title }} <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         @foreach($menuItem->childs as $childMenuItem)
                           <li><a href="{{ route($menuItem->pathForType($childMenuItem), $childMenuItem->material_id) }}">{{ $childMenuItem->title }}</a></li>
@@ -94,7 +94,7 @@
                 @if($menuItem->type == 3 && $menuItem->parent_id == 0)
                 @if(isset($menuItem->childs) && $menuItem->childs->isNotEmpty())
                     <li class="dropdown">
-                      <a href="{{ route('realtyInfo') }}" class="dropdown-toggle disabled" data-toggle="dropdown">Недвижимость <span class="caret"></span></a>
+                    <a href="{{ route($menuItem->pathForType($menuItem), $menuItem->material_id) }}" class="dropdown-toggle disabled" data-toggle="dropdown">{{ $menuItem->title }} <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         @foreach($menuItem->childs as $childMenuItem)
                           <li><a href="{{ route($menuItem->pathForType($childMenuItem), $childMenuItem->material_id) }}">{{ $childMenuItem->title }}</a></li>
@@ -109,7 +109,7 @@
                 @if($menuItem->type == 4 && $menuItem->parent_id == 0)
                 @if(isset($menuItem->childs) && $menuItem->childs->isNotEmpty())
                     <li class="dropdown">
-                      <a href="{{ route('realtyInfo') }}" class="dropdown-toggle disabled" data-toggle="dropdown">Недвижимость <span class="caret"></span></a>
+                    <a href="{{ route($menuItem->pathForType($menuItem), $menuItem->material_id) }}" class="dropdown-toggle disabled" data-toggle="dropdown">{{ $menuItem->title }} <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         @foreach($menuItem->childs as $childMenuItem)
                           <li><a href="{{ route($menuItem->pathForType($childMenuItem), $childMenuItem->material_id) }}">{{ $childMenuItem->title }}</a></li>
@@ -124,7 +124,7 @@
                 @if($menuItem->type == 5 && $menuItem->parent_id == 0)
                 @if(isset($menuItem->childs) && $menuItem->childs->isNotEmpty())
                     <li class="dropdown">
-                      <a href="{{ route('realtyInfo') }}" class="dropdown-toggle disabled" data-toggle="dropdown">Недвижимость <span class="caret"></span></a>
+                    <a href="{{ route($menuItem->pathForType($menuItem), $menuItem->material_id) }}" class="dropdown-toggle disabled" data-toggle="dropdown">{{ $menuItem->title }} <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         @foreach($menuItem->childs as $childMenuItem)
                           <li><a href="{{ route($menuItem->pathForType($childMenuItem), $childMenuItem->material_id) }}">{{ $childMenuItem->title }}</a></li>
@@ -139,7 +139,7 @@
                 @if($menuItem->type == 6 && $menuItem->parent_id == 0)
                   @if(isset($menuItem->childs) && $menuItem->childs->isNotEmpty())
                     <li class="dropdown">
-                      <a href="{{ route('realtyInfo') }}" class="dropdown-toggle disabled" data-toggle="dropdown">Недвижимость <span class="caret"></span></a>
+                    <a href="{{ route($menuItem->pathForType($menuItem), $menuItem->material_id) }}" class="dropdown-toggle disabled" data-toggle="dropdown">{{ $menuItem->title }} <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         @foreach($menuItem->childs as $childMenuItem)
                           <li><a href="{{ route($menuItem->pathForType($childMenuItem), $childMenuItem->material_id) }}">{{ $childMenuItem->title }}</a></li>
