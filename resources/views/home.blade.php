@@ -8,7 +8,7 @@
     @if($homeArticle)
     <div class="col-sm-9">
         <h1>{{ $homeArticle->title }}</h1>
-        <img src="{{ asset('img/image_1.jpg') }}" alt="Главная" /><br />
+        <!-- <img src="{{ asset('img/image_1.jpg') }}" alt="Главная" /><br /> -->
         {!! $homeArticle->text !!}
     </div>
     @endif

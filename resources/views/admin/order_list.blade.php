@@ -110,7 +110,7 @@
         <tr>
           <td><input type="checkbox" name="order-{{ $order->id }}" class="sell_item" value="{{ $order->id }}"></td>
           @if(isset($accesses[9]))
-          <td><a href="{{ route('editForm', $order->id) }}">{{ sprintf("%04d", $order->id) }}</a></td>
+          <td><a href="{{ route('editOrderForm', $order->id) }}">{{ sprintf("%04d", $order->id) }}</a></td>
           @else
           <td>{{ sprintf("%04d", $order->id) }}</td>
           @endif

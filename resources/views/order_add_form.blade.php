@@ -11,7 +11,7 @@
 
 @include('errors')
 
-<form method="post" action="{{ route('addOrder') }}">
+<form method="post" action="{{ route('createOrder') }}">
     @csrf
     <div class="form-group">
         <label>ФИО <span class="text-danger">*</span></label>

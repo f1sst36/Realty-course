@@ -41,7 +41,7 @@
         @endif
         <td>
             @if($article->type == 1 )
-                Запись на главной
+                Без категории
             @else
                 Новости
             @endif

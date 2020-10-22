@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'InfoController@index')->name('home');
-Route::get('/about', 'InfoController@about')->name('about');
+Route::get('/', 'InfoController@mainPage')->name('mainPage');
+Route::get('/home/{article_id}', 'InfoController@index')->name('home');
+Route::get('/about/{article_id}', 'InfoController@about')->name('about');
 Route::get('/map', 'InfoController@showMap')->name('map');
 Route::get('/realty-info', 'InfoController@showRealtyInfo')->name('realtyInfo');
 
@@ -24,7 +25,7 @@ Route::get('/news', 'ArticleController@index')->name('acticles');
 Route::get('/article/{id}', 'ArticleController@showArticle')->name('article');
 
 Route::get('/order-form', 'OrderController@createForm')->name('orderForm');
-Route::post('/add-order', 'OrderController@addOrder')->name('addOrder');
+Route::post('/add-order', 'OrderController@addOrder')->name('createOrder');
 Route::get('/order-list', 'OrderController@orderList')->name('orderList');
 Route::get('/order-filter', 'OrderController@orderFilter')->name('orderFilter');
 
@@ -52,7 +53,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function(){
     Route::post('/upload-image', 'SliderController@uploadImageOrDelete')->name('uploadImageOrDelete');
 
     Route::get('/orders', 'OrderController@index')->name('orders');
-    Route::get('/order-edit/{id}', 'OrderController@editForm')->name('editForm');
+    Route::get('/order-edit/{id}', 'OrderController@editForm')->name('editOrderForm');
     Route::post('/order-update', 'OrderController@editOrder')->name('editOrder');
     Route::get('/order-add', 'OrderController@addForm')->name('addOrderForm');
     Route::post('/order-store', 'OrderController@addOrder')->name('addOrder');
@@ -72,5 +73,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function(){
     Route::post('/role-update', 'RolesController@editForm')->name('editForm');
     Route::post('/role-store', 'RolesController@createRole')->name('createRole');
     Route::post('/role-delete', 'RolesController@roleDelete')->name('roleDelete');
+
+    Route::get('/menus', 'MenuController@index')->name('menus');
+    Route::get('/menu-create', 'MenuController@createMenuForm')->name('createMenuForm');
+    Route::post('/menu-store', 'MenuController@createMenuItem')->name('createMenuItem');
+    Route::get('/menu-edit/{id}', 'MenuController@editMenuItemForm')->name('editMenuItemForm');
+    Route::post('/menu-update', 'MenuController@editMenuItem')->name('editMenuItem');
+    Route::post('/menu-delete', 'MenuController@deleteMenu')->name('deleteMenu');
 });
 

@@ -26,7 +26,7 @@ class AddArticleRequest extends FormRequest
         return [
             'title' => 'min:3|max:200',
             'preview' => 'min:8|max:200',
-            'text' => 'min:8|max:2000',
+            'text' => 'min:8|max:10000',
         ];
     }
 
@@ -37,7 +37,7 @@ class AddArticleRequest extends FormRequest
             'preview.min' => 'Ананс должен быть больше 8 символов',
             'preview.max' => 'Анонс должен быть меньше 200 символов',
             'text.min' => 'Текст должен быть больше 8 символов',
-            'text.max' => 'Текст должен быть меньше 2000 символов',
+            'text.max' => 'Текст должен быть меньше 10000 символов',
         ];
      }
 }

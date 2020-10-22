@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Menu;
 use App\Models\Order;
 use App\Models\OrderType;
 use App\Models\OrderStructure;
@@ -13,8 +14,9 @@ class OrderController extends Controller
     public function createForm(){
         $orderTypes = OrderType::select(['id', 'type'])->get();
         $orderStructures = OrderStructure::select(['id', 'structure'])->get();
+        $menuItems = Menu::setHierarchy();
 
-        return view('order_add_form', compact('orderTypes', 'orderStructures'));
+        return view('order_add_form', compact('orderTypes', 'orderStructures', 'menuItems'));
     }
 
     public function addOrder(AddOrderRequest $request){
@@ -32,8 +34,9 @@ class OrderController extends Controller
         $orderTypes = OrderType::select(['id', 'type'])->get();
         $orderStructures = OrderStructure::select(['id', 'structure'])->get();
         $orders = Order::with(['orderType:id,type', 'orderStructure:id,structure'])->where('status', '=', 2)->get();
+        $menuItems = Menu::setHierarchy();
 
-        return view('orders_list', compact('orders', 'orderTypes', 'orderStructures'));
+        return view('orders_list', compact('orders', 'orderTypes', 'orderStructures', 'menuItems'));
     }
 
     public function orderFilter(Request $request){
@@ -50,9 +53,10 @@ class OrderController extends Controller
         if(isset($filterData['minPrice']) && $filterData['minPrice'] > 0) $filterRules[] = ['price', '>', $filterData['minPrice']];
         if(isset($filterData['maxPrice']) && $filterData['maxPrice'] > 0) $filterRules[] = ['price', '<=', $filterData['maxPrice']];
         $filterRules[] = ['status', '=', 2];
+        $menuItems = Menu::setHierarchy();
         
         $orders = Order::where($filterRules)->get();
 
-        return view('orders_list', compact('orders', 'orderTypes', 'orderStructures'));
+        return view('orders_list', compact('orders', 'orderTypes', 'orderStructures', 'menuItems'));
     }
 }

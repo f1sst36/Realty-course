@@ -33,7 +33,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="{{ route('articles') }}">Материалы</a></li>
-            <li><a href="">Меню</a></li>
+            <li><a href="{{ route('menus') }}">Меню</a></li>
             <li><a href="{{ route('reviewList') }}">Отзывы</a></li>
             <li><a href="{{ route('slider') }}">Слайдер</a></li>
             <li><a href="{{ route('orders') }}">Заявки</a></li>
@@ -48,7 +48,7 @@
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ route('home') }}" target="_blank">Сайт</a></li>
+            <li><a href="{{ route('home', 1) }}" target="_blank">Сайт</a></li>
             <li><a href="{{ route('logout') }}">Выйти</a></li>
           </ul>
         </div>

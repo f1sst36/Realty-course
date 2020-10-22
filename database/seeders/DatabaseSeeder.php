@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             AccessSeeder::class,
             UserSeeder::class,
             access_usersSeeder::class,
+            //MenuSeeder::class,
         ]);
     }
 }
